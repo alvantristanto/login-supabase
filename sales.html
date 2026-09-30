@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Dashboard Sales</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <div class="admin-layout">
+
+
+        <!-- =========================
+             SIDEBAR SALES
+        ========================== -->
+
+        <aside class="sidebar">
+
+
+            <div class="sidebar-header">
+
+                <h2>SALES</h2>
+
+                <p>
+                    Dashboard
+                </p>
+
+            </div>
+
+
+            <nav class="sidebar-menu">
+
+
+                <a
+    href="#"
+    id="customerMenu"
+    class="menu-item active"
+>
+                    👤
+                    <span>Customer Client</span>
+                </a>
+
+                <a href="#" id="daftarCustomerMenu" class="menu-item">
+    📋
+    <span>Daftar Client</span>
+</a>
+<a
+    href="#"
+    id="invoiceMenu"
+    class="menu-item"
+>
+                    🧾
+                    <span>Invoice</span>
+                </a>
+<a
+    href="#"
+    id="daftarInvoiceMenu"
+    class="menu-item"
+>
+    📋
+    <span>Daftar Invoice</span>
+</a>
+
+<a
+    href="#"
+    id="produkMenu"
+    class="menu-item"
+>
+    📦
+    <span>Produk / Jasa</span>
+</a>
+
+            </nav>
+
+
+        </aside>
+
+
+
+        <!-- =========================
+             KONTEN UTAMA
+        ========================== -->
+
+        <main class="main-content">
+
+
+            <!-- JUDUL -->
+
+            <div class="topbar">
+
+                <div>
+
+                    <h1>
+                        Dashboard Sales
+                    </h1>
+
+                    <p>
+                        Kelola customer dan invoice
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================
+                 CUSTOMER CLIENT
+            ========================== -->
+
+           <section
+    id="customer"
+    class="settings-card sales-section"
+>
+
+
+                <div class="card-header">
+
+                    <h2>
+                        Customer Client
+                    </h2>
+
+                    <p>
+                        Tambahkan data customer atau client.
+                    </p>
+
+                </div>
+
+
+
+                <form id="salesCustomerForm">
+
+
+                    <!-- UNIT / NAMA KLIEN -->
+
+                    <div class="form-group">
+
+                        <label for="unitClient">
+
+                            Unit / Nama Klien
+
+                        </label>
+
+
+                        <input
+                            type="text"
+                            id="unitClient"
+                            placeholder="Contoh: PT Maju Jaya"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <!-- NAMA -->
+
+                    <div class="form-group">
+
+                        <label for="namaClient">
+
+                            Nama
+
+                        </label>
+
+
+                        <input
+                            type="text"
+                            id="namaClient"
+                            placeholder="Nama customer"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <!-- ALAMAT -->
+
+                    <div class="form-group">
+
+                        <label for="alamatClient">
+
+                            Alamat
+
+                        </label>
+
+
+                        <textarea
+                            id="alamatClient"
+                            placeholder="Masukkan alamat"
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+
+                    <!-- NO HP -->
+
+                    <div class="form-group">
+
+                        <label for="noHpClient">
+
+                            No. HP
+
+                        </label>
+
+
+                        <input
+                            type="text"
+                            id="noHpClient"
+                            placeholder="Contoh: 081234567890"
+                            inputmode="numeric"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <!-- EMAIL -->
+
+                    <div class="form-group">
+
+                        <label for="emailClient">
+
+                            Email
+
+                        </label>
+
+
+                        <input
+                            type="email"
+                            id="emailClient"
+                            placeholder="contoh@email.com"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <button
+                        type="submit"
+                        class="save-button"
+                    >
+
+                        Simpan Customer
+
+                    </button>
+
+
+                    <p
+                        id="salesCustomerMessage"
+                    ></p>
+
+
+                </form>
+
+
+            </section>
+
+
+            <!-- =========================================
+     DAFTAR CLIENT
+========================================== -->
+
+<section id="daftarCustomer" style="display: none;">
+
+    <div class="topbar">
+
+        <div>
+            <h1>Daftar Client</h1>
+
+            <p>
+                Melihat seluruh client yang telah ditambahkan.
+            </p>
+        </div>
+
+    </div>
+
+
+    <section class="settings-card">
+
+        <div class="card-header">
+
+            <h2>Daftar Client</h2>
+
+            <p>
+                Data client yang telah tersimpan.
+            </p>
+
+        </div>
+
+
+        <div id="salesCustomerList">
+
+            Memuat data client...
+
+        </div>
+
+    </section>
+
+</section>
+            
+
+            <!-- =========================
+                 INVOICE
+            ========================== -->
+
+            <section
+    id="invoice"
+    class="settings-card sales-section"
+    style="display: none;"
+>
+
+
+                <div class="card-header">
+
+                    <h2>
+                        Buat Invoice
+                    </h2>
+
+                    <p>
+                        Masukkan data invoice customer.
+                    </p>
+
+                </div>
+
+
+
+                <form id="salesInvoiceForm">
+
+
+                    <!-- NOMOR INVOICE -->
+
+                    <div class="form-group">
+
+                        <label>
+
+                            Nomor Invoice
+
+                        </label>
+
+
+                        <input
+                            type="text"
+                            id="nomorInvoiceSales"
+                            value="Otomatis"
+                            readonly
+                        >
+
+                    </div>
+
+
+
+                    <!-- KODE BARANG -->
+
+                    <div class="form-group">
+
+                        <label for="kodeBarang">
+
+                            Kode Barang / Jasa
+
+                        </label>
+
+
+                        <input
+                            type="text"
+                            id="kodeBarang"
+                            placeholder="Contoh: BRG-001"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <!-- KETERANGAN -->
+
+                    <div class="form-group">
+
+                        <label for="keterangan">
+
+                            Keterangan
+
+                        </label>
+
+
+                        <textarea
+                            id="keterangan"
+                            placeholder="Keterangan barang atau jasa"
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+
+                    <!-- QTY -->
+
+                    <div class="form-group">
+
+                        <label for="qty">
+
+                            Jumlah / Qty
+
+                        </label>
+
+
+                        <input
+                            type="number"
+                            id="qty"
+                            value="1"
+                            min="1"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <!-- HARGA SATUAN -->
+
+                    <div class="form-group">
+
+                        <label for="hargaSatuan">
+
+                            Harga Satuan
+
+                        </label>
+
+
+                        <input
+                            type="text"
+                            id="hargaSatuan"
+                            placeholder="Contoh: 100.000"
+                            inputmode="numeric"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <!-- PAJAK -->
+
+                    <div class="form-group">
+
+                        <label for="pajak">
+
+                            Pajak (%)
+
+                        </label>
+
+
+                        <input
+                            type="number"
+                            id="pajak"
+                            value="0"
+                            min="0"
+                        >
+
+                    </div>
+
+
+
+                    <!-- TOTAL -->
+
+                    <div class="form-group">
+
+                        <label for="totalInvoiceSales">
+
+                            Total + Pajak
+
+                        </label>
+
+
+                        <input
+                            type="text"
+                            id="totalInvoiceSales"
+                            value="Rp 0"
+                            readonly
+                        >
+
+                    </div>
+
+
+
+                    <!-- STATUS -->
+
+                    <div class="form-group">
+
+                        <label for="statusInvoiceSales">
+
+                            Status
+
+                        </label>
+
+
+                        <select
+                            id="statusInvoiceSales"
+                            required
+                        >
+
+                            <option value="Draft">
+
+                                Draft
+
+                            </option>
+
+
+                            <option value="Dikirim">
+
+                                Dikirim
+
+                            </option>
+
+
+                            <option value="Belum Bayar">
+
+                                Belum Bayar
+
+                            </option>
+
+
+                            <option value="Lunas">
+
+                                Lunas
+
+                            </option>
+
+
+                            <option value="Dibatalkan">
+
+                                Dibatalkan
+
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <button
+                        type="submit"
+                        class="save-button"
+                    >
+
+                        Simpan Invoice
+
+                    </button>
+
+
+                    <p
+                        id="salesInvoiceMessage"
+                    ></p>
+
+
+                </form>
+
+
+            </section>
+
+<!-- =========================
+     DAFTAR INVOICE SALES
+========================== -->
+
+<section
+    id="daftarInvoice"
+    class="settings-card sales-section"
+    style="display: none;"
+>
+
+    <div class="card-header">
+
+        <h2>
+            Daftar Invoice
+        </h2>
+
+        <p>
+            Invoice yang telah dibuat.
+        </p>
+
+    </div>
+
+
+    <div id="salesInvoiceList">
+
+        Memuat data invoice...
+
+    </div>
+
+</section>
+
+<!-- =========================================
+     PRODUK / JASA
+========================================= -->
+
+<section
+    id="produk"
+    class="settings-card sales-section"
+    style="display: none;"
+>
+
+    <!-- HEADER PRODUK -->
+
+    <div class="section-header">
+
+        <div>
+
+            <h2>
+                Produk / Jasa
+            </h2>
+
+            <p>
+                Kelola produk atau jasa yang dijual.
+            </p>
+
+        </div>
+
+
+        <button
+            type="button"
+            id="tambahProdukBtn"
+            class="tambah-produk-button"
+        >
+
+            + Tambah Produk
+
+        </button>
+
+    </div>
+
+
+    <!-- =====================================
+         FORM TAMBAH PRODUK
+    ====================================== -->
+
+    <div
+        id="produkFormContainer"
+        style="display: none;"
+    >
+
+        <form
+            id="salesProductForm"
+        >
+
+
+            <!-- KODE PRODUK -->
+
+            <div class="form-group">
+
+                <label for="kodeProduk">
+
+                    Kode Produk
+
+                </label>
+
+
+                <input
+                    type="text"
+                    id="kodeProduk"
+                    placeholder="Contoh: AP-001"
+                    required
+                >
+
+            </div>
+
+
+            <!-- NAMA PRODUK -->
+
+            <div class="form-group">
+
+                <label for="namaProduk">
+
+                    Nama Produk / Jasa
+
+                </label>
+
+
+                <input
+                    type="text"
+                    id="namaProduk"
+                    placeholder="Masukkan nama produk"
+                    required
+                >
+
+            </div>
+
+
+            <!-- KATEGORI -->
+
+            <div class="form-group">
+
+                <label for="kategoriProduk">
+
+                    Kategori
+
+                </label>
+
+
+                <select
+                    id="kategoriProduk"
+                    required
+                >
+
+                    <option value="">
+
+                        Pilih Kategori
+
+                    </option>
+
+
+                    <option value="Access Point">
+
+                        Access Point
+
+                    </option>
+
+
+                    <option value="MikroTik">
+
+                        MikroTik
+
+                    </option>
+
+
+                    <option value="Switch">
+
+                        Switch
+
+                    </option>
+
+
+                    <option value="CCTV">
+
+                        CCTV
+
+                    </option>
+
+
+                    <option value="Aksesoris">
+
+                        Aksesoris
+
+                    </option>
+
+
+                <option value="Jasa">
+    Jasa
+</option>
+
+<option value="Jasa Pemasangan">
+    Jasa Pemasangan
+</option>
+
+<option value="Jasa Instalasi">
+    Jasa Instalasi
+</option>
+
+                </select>
+
+            </div>
+
+
+            <!-- HARGA -->
+
+            <div class="form-group">
+
+                <label for="hargaProduk">
+
+                    Harga
+
+                </label>
+
+
+                <input
+                    type="text"
+                    id="hargaProduk"
+                    placeholder="Contoh: 750.000"
+                    required
+                >
+
+            </div>
+
+
+            <!-- STOK -->
+
+            <div class="form-group">
+
+                <label for="stokProduk">
+
+                    Stok
+
+                </label>
+
+
+                <input
+                    type="number"
+                    id="stokProduk"
+                    placeholder="Contoh: 10"
+                    value="0"
+                >
+
+            </div>
+
+
+            <!-- GAMBAR -->
+
+            <div class="form-group">
+
+                <label for="gambarProduk">
+
+                    URL Gambar Produk
+
+                </label>
+
+
+                <input
+                    type="text"
+                    id="gambarProduk"
+                    placeholder="Masukkan URL gambar"
+                >
+
+            </div>
+
+
+            <!-- STATUS -->
+
+            <div class="form-group">
+
+                <label for="statusProduk">
+
+                    Status
+
+                </label>
+
+
+                <select
+                    id="statusProduk"
+                >
+
+                    <option value="Aktif">
+
+                        Aktif
+
+                    </option>
+
+
+                    <option value="Tidak Aktif">
+
+                        Tidak Aktif
+
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- TOMBOL SIMPAN -->
+
+            <button
+                type="submit"
+                class="simpan-produk-button"
+            >
+
+                Simpan Produk
+
+            </button>
+
+
+            <p
+                id="salesProductMessage"
+            ></p>
+
+
+        </form>
+
+    </div>
+
+
+    <!-- =====================================
+         FILTER PRODUK
+    ====================================== -->
+
+    <div class="produk-filter">
+
+
+        <!-- CARI PRODUK -->
+
+        <input
+            type="text"
+            id="cariProduk"
+            placeholder="🔍 Cari produk..."
+        >
+
+
+        <!-- FILTER KATEGORI -->
+
+        <select
+            id="filterKategori"
+        >
+
+            <option value="">
+
+                Semua Kategori
+
+            </option>
+
+
+            <option value="Access Point">
+
+                Access Point
+
+            </option>
+
+
+            <option value="MikroTik">
+
+                MikroTik
+
+            </option>
+
+
+            <option value="Switch">
+
+                Switch
+
+            </option>
+
+
+            <option value="CCTV">
+
+                CCTV
+
+            </option>
+
+
+            <option value="Aksesoris">
+
+                Aksesoris
+
+            </option>
+
+
+           <option value="Jasa">
+    Jasa
+</option>
+
+<option value="Jasa Pemasangan">
+    Jasa Pemasangan
+</option>
+
+<option value="Jasa Instalasi">
+    Jasa Instalasi
+</option>
+
+        </select>
+
+
+    </div>
+
+
+    <!-- =====================================
+         DAFTAR PRODUK
+    ====================================== -->
+
+    <div
+        id="salesProductList"
+        class="produk-grid"
+    >
+
+        Memuat produk...
+
+    </div>
+
+
+</section>
+
+            <!-- =========================
+                 INFORMASI USER
+            ========================== -->
+
+            <div class="user-info">
+
+
+                <p id="userEmail">
+
+                    Memuat email...
+
+                </p>
+
+
+                <button id="logoutBtn">
+
+                    Logout
+
+                </button>
+
+
+            </div>
+
+
+        </main>
+
+
+    </div>
+
+
+
+    <!-- SUPABASE -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="sales.js"></script>
+
+
+</body>
+
+</html>

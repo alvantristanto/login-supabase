@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Customer - Admin</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+    <div class="admin-layout">
+
+
+        <!-- =========================
+             SIDEBAR
+        ========================== -->
+        <aside class="sidebar">
+
+            <div class="sidebar-header">
+                <h2>ADMIN</h2>
+                <p>Dashboard</p>
+            </div>
+
+
+            <nav class="sidebar-menu">
+
+                <a href="invoice.html" class="menu-item">
+                    🧾
+                    <span>Invoice</span>
+                </a>
+
+
+                <a href="customer.html" class="menu-item active">
+                    👤
+                    <span>Customer</span>
+                </a>
+
+
+                <a href="produk.html" class="menu-item">
+                    📦
+                    <span>Produk/Jasa</span>
+                </a>
+
+
+                <a href="laporan.html" class="menu-item">
+                    📊
+                    <span>Laporan</span>
+                </a>
+
+
+                <a href="admin.html" class="menu-item">
+                    ⚙️
+                    <span>Pengaturan</span>
+                </a>
+
+            </nav>
+
+        </aside>
+
+
+        <!-- =========================
+             KONTEN UTAMA
+        ========================== -->
+        <main class="main-content">
+
+
+            <!-- JUDUL HALAMAN -->
+            <div class="topbar">
+
+                <div>
+                    <h1>Customer</h1>
+                    <p>Kelola data pelanggan</p>
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+                 FORM TAMBAH CUSTOMER
+            ========================== -->
+            <section class="settings-card">
+
+                <div class="card-header">
+
+                    <h2>Tambah Customer</h2>
+
+                    <p>
+                        Masukkan informasi pelanggan.
+                    </p>
+
+                </div>
+
+
+                <form id="customerForm">
+
+
+                    <!-- NAMA CUSTOMER -->
+                    <div class="form-group">
+
+                        <label for="customerNama">
+                            Nama Customer
+                        </label>
+
+                        <input
+                            type="text"
+                            id="customerNama"
+                            placeholder="Masukkan nama customer"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- NOMOR HP -->
+                    <div class="form-group">
+
+                        <label for="customerNoHp">
+                            No. HP
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="customerNoHp"
+                            placeholder="Contoh: 081234567890"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- EMAIL -->
+                    <div class="form-group">
+
+                        <label for="customerEmail">
+                            Email
+                        </label>
+
+                        <input
+                            type="email"
+                            id="customerEmail"
+                            placeholder="email@example.com"
+                        >
+
+                    </div>
+
+
+                    <!-- ALAMAT -->
+                    <div class="form-group">
+
+                        <label for="customerAlamat">
+                            Alamat
+                        </label>
+
+                        <textarea
+                            id="customerAlamat"
+                            placeholder="Masukkan alamat customer"
+                            rows="4"
+                        ></textarea>
+
+                    </div>
+
+
+                    <!-- CATATAN -->
+                    <div class="form-group">
+
+                        <label for="customerCatatan">
+                            Catatan
+                        </label>
+
+                        <textarea
+                            id="customerCatatan"
+                            placeholder="Catatan tambahan"
+                            rows="3"
+                        ></textarea>
+
+                    </div>
+
+
+                    <!-- TOMBOL SIMPAN -->
+                    <button
+                        type="submit"
+                        class="save-button"
+                    >
+                        Simpan Customer
+                    </button>
+
+
+                    <!-- PESAN -->
+                    <p id="customerMessage"></p>
+
+                </form>
+
+            </section>
+
+
+            <!-- =========================
+                 DAFTAR CUSTOMER
+            ========================== -->
+            <section class="settings-card customer-list">
+
+                <div class="card-header">
+                    <h2>Daftar Customer</h2>
+                </div>
+
+
+                <div id="customerList">
+                    Memuat data customer...
+                </div>
+
+            </section>
+
+
+            <!-- =========================
+                 INFORMASI USER
+            ========================== -->
+            <div class="user-info">
+
+                <p id="userEmail">
+                    Memuat email...
+                </p>
+
+
+                <button id="logoutBtn">
+                    Logout
+                </button>
+
+            </div>
+
+
+        </main>
+
+    </div>
+
+
+    <!-- SUPABASE -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- JAVASCRIPT -->
+    <script src="dashboard.js"></script>
+
+
+</body>
+
+</html>

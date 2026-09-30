@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Pengaturan - Admin</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+    <div class="admin-layout">
+
+
+        <!-- =========================
+             SIDEBAR
+        ========================== -->
+        <aside class="sidebar">
+
+            <div class="sidebar-header">
+                <h2>ADMIN</h2>
+                <p>Dashboard</p>
+            </div>
+
+
+            <nav class="sidebar-menu">
+
+                <a href="invoice.html" class="menu-item">
+                    🧾
+                    <span>Invoice</span>
+                </a>
+
+
+                <a href="customer.html" class="menu-item">
+                    👤
+                    <span>Customer</span>
+                </a>
+
+
+                <a href="produk.html" class="menu-item">
+                    📦
+                    <span>Produk/Jasa</span>
+                </a>
+
+
+                <a href="laporan.html" class="menu-item">
+                    📊
+                    <span>Laporan</span>
+                </a>
+
+
+                <a href="admin.html" class="menu-item active">
+                    ⚙️
+                    <span>Pengaturan</span>
+                </a>
+
+            </nav>
+
+        </aside>
+
+
+        <!-- =========================
+             KONTEN UTAMA
+        ========================== -->
+        <main class="main-content">
+
+
+            <!-- JUDUL HALAMAN -->
+            <div class="topbar">
+
+                <div>
+                    <h1>Pengaturan</h1>
+
+                    <p>
+                        Kelola informasi pembayaran
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+                 PENGATURAN PEMBAYARAN
+            ========================== -->
+            <section class="settings-card">
+
+                <div class="card-header">
+
+                    <h2>
+                        Pengaturan Data Pembayaran
+                    </h2>
+
+                    <p>
+                        Atur informasi rekening yang digunakan
+                        untuk pembayaran.
+                    </p>
+
+                </div>
+
+
+                <form id="settingsForm">
+
+
+                    <!-- NAMA BANK -->
+                    <div class="form-group">
+
+                        <label for="namaBank">
+                            Nama Bank
+                        </label>
+
+                        <input
+                            type="text"
+                            id="namaBank"
+                            placeholder="Contoh: BCA"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- NOMOR REKENING -->
+                    <div class="form-group">
+
+                        <label for="noRek">
+                            No. Rekening
+                        </label>
+
+                        <input
+                            type="text"
+                            id="noRek"
+                            placeholder="Contoh: 1234567890"
+                            inputmode="numeric"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- NAMA REKENING -->
+                    <div class="form-group">
+
+                        <label for="namaRekening">
+                            Nama Rekening
+                        </label>
+
+                        <input
+                            type="text"
+                            id="namaRekening"
+                            placeholder="Contoh: Angga Dwi Setiawan"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- TOMBOL SIMPAN -->
+                    <button
+                        type="submit"
+                        class="save-button"
+                    >
+                        Simpan Pengaturan
+                    </button>
+
+
+                    <!-- PESAN -->
+                    <p id="settingsMessage"></p>
+
+
+                </form>
+
+            </section>
+
+
+            <!-- =========================
+                 INFORMASI USER
+            ========================== -->
+            <div class="user-info">
+
+                <p id="userEmail">
+                    Memuat email...
+                </p>
+
+
+                <button id="logoutBtn">
+                    Logout
+                </button>
+
+            </div>
+
+
+        </main>
+
+    </div>
+
+
+    <!-- SUPABASE -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- JAVASCRIPT -->
+    <script src="dashboard.js"></script>
+<script src="pengaturan.js"></script>
+
+
+</body>
+
+</html>

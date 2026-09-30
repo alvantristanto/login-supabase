@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Laporan - Admin</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+    <div class="admin-layout">
+
+
+        <!-- =========================
+             SIDEBAR
+        ========================== -->
+
+        <aside class="sidebar">
+
+            <div class="sidebar-header">
+
+                <h2>ADMIN</h2>
+
+                <p>Dashboard</p>
+
+            </div>
+
+
+            <nav class="sidebar-menu">
+
+                <a
+                    href="invoice.html"
+                    class="menu-item"
+                >
+                    🧾
+                    <span>Invoice</span>
+                </a>
+
+
+                <a
+                    href="customer.html"
+                    class="menu-item"
+                >
+                    👤
+                    <span>Customer</span>
+                </a>
+
+
+                <a
+                    href="produk.html"
+                    class="menu-item"
+                >
+                    📦
+                    <span>Produk/Jasa</span>
+                </a>
+
+
+                <a
+                    href="laporan.html"
+                    class="menu-item active"
+                >
+                    📊
+                    <span>Laporan</span>
+                </a>
+
+
+                <a
+                    href="admin.html"
+                    class="menu-item"
+                >
+                    ⚙️
+                    <span>Pengaturan</span>
+                </a>
+
+            </nav>
+
+        </aside>
+
+
+
+        <!-- =========================
+             KONTEN UTAMA
+        ========================== -->
+
+        <main class="main-content">
+
+
+            <!-- =========================
+                 JUDUL HALAMAN
+            ========================== -->
+
+            <div class="topbar">
+
+                <div>
+
+                    <h1>Laporan</h1>
+
+                    <p>
+                        Monitoring pemasukan berdasarkan data invoice
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =====================================================
+                 GROUP 1
+                 GRAFIK + RINGKASAN + TOTAL INVOICE + CETAK
+            ====================================================== -->
+
+            <div class="laporan-group laporan-group-utama">
+
+
+                <!-- =========================
+                     GRAFIK PEMASUKAN
+                ========================== -->
+
+                <section class="laporan-section grafik-section">
+
+                    <div class="card-header">
+
+                        <h2>
+                            Grafik Pemasukan
+                        </h2>
+
+                        <p>
+                            Lihat pemasukan berdasarkan periode waktu.
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- FILTER PERIODE -->
+
+                    <div class="filter-laporan">
+
+
+                        <div class="form-group">
+
+                            <label for="filterLaporan">
+                                Pilih Periode
+                            </label>
+
+                            <select id="filterLaporan">
+
+                                <option value="harian">
+                                    Harian
+                                </option>
+
+                                <option value="bulanan">
+                                    Bulanan
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+
+                        <div class="form-group">
+
+                            <label for="tanggalMulai">
+                                Tanggal Mulai
+                            </label>
+
+                            <input
+                                type="date"
+                                id="tanggalMulai"
+                            >
+
+                        </div>
+
+
+
+                        <div class="form-group">
+
+                            <label for="tanggalSelesai">
+                                Tanggal Selesai
+                            </label>
+
+                            <input
+                                type="date"
+                                id="tanggalSelesai"
+                            >
+
+                        </div>
+
+
+
+                        <button
+                            type="button"
+                            id="filterBtn"
+                            class="save-button"
+                        >
+                            Tampilkan
+                        </button>
+
+                    </div>
+
+
+
+                    <!-- CHART -->
+
+                    <div class="chart-container">
+
+                        <canvas id="pemasukanChart"></canvas>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =========================
+                     PEMBATAS
+                ========================== -->
+
+                <div class="laporan-divider"></div>
+
+
+
+                <!-- =========================
+                     RINGKASAN PEMASUKAN
+                ========================== -->
+
+                <section class="laporan-section ringkasan-section">
+
+                    <div class="card-header">
+
+                        <h2>
+                            Ringkasan Pemasukan
+                        </h2>
+
+                        <p>
+                            Jumlah pemasukan dari invoice yang tercatat.
+                        </p>
+
+                    </div>
+
+
+
+                    <div class="report-summary">
+
+
+                        <div class="summary-box">
+
+                            <h3>
+                                Total Pemasukan
+                            </h3>
+
+                            <p id="totalPemasukan">
+                                Rp 0
+                            </p>
+
+                        </div>
+
+
+
+                        <div class="summary-box">
+
+                            <h3>
+                                Total DP
+                            </h3>
+
+                            <p id="totalDP">
+                                Rp 0
+                            </p>
+
+                        </div>
+
+
+
+                        <div class="summary-box">
+
+                            <h3>
+                                Belum Bayar
+                            </h3>
+
+                            <p id="totalBelumBayar">
+                                Rp 0
+                            </p>
+
+                        </div>
+
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =========================
+                     TOTAL INVOICE
+                ========================== -->
+
+                <section class="laporan-section total-invoice-section">
+
+
+                    <div class="report-cards">
+
+
+                        <div class="report-card">
+
+                            <h3>
+                                Total Invoice
+                            </h3>
+
+                            <p id="totalInvoice">
+                                0
+                            </p>
+
+                        </div>
+
+
+
+                        <div class="report-card">
+
+                            <h3>
+                                Total Pendapatan
+                            </h3>
+
+                            <p id="totalPendapatan">
+                                Rp 0
+                            </p>
+
+                        </div>
+
+
+
+                        <div class="report-card">
+
+                            <h3>
+                                Lunas
+                            </h3>
+
+                            <p id="totalLunas">
+                                0
+                            </p>
+
+                        </div>
+
+
+
+                        <div class="report-card">
+
+                            <h3>
+                                Belum Bayar
+                            </h3>
+
+                            <p id="jumlahBelumBayar">
+                                0
+                            </p>
+
+                        </div>
+
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =========================
+                     CETAK LAPORAN
+                ========================== -->
+
+                <section class="laporan-section cetak-section">
+
+
+                    <div class="card-header">
+
+                        <h2>
+                            Cetak Laporan
+                        </h2>
+
+                        <p>
+                            Preview laporan sebelum dicetak atau disimpan.
+                        </p>
+
+                    </div>
+
+
+
+                    <div class="action-buttons">
+
+
+                        <button
+                            type="button"
+                            id="previewPrintBtn"
+                            class="save-button"
+                        >
+                            Preview Cetak
+                        </button>
+
+
+
+                        <button
+                            type="button"
+                            id="downloadPdfBtn"
+                            class="download-pdf-button"
+                        >
+                            Download PDF
+                        </button>
+
+
+
+                        <button
+                            type="button"
+                            id="printBtn"
+                            class="print-button-main"
+                        >
+                            Print
+                        </button>
+
+
+
+                        <button
+                            type="button"
+                            id="emailBtn"
+                            class="save-button"
+                        >
+                            Kirim Email
+                        </button>
+
+
+
+                        <button
+                            type="button"
+                            id="copyLinkBtn"
+                            class="save-button"
+                        >
+                            Copy Link
+                        </button>
+
+
+                    </div>
+
+                </section>
+
+
+            </div>
+
+
+
+            <!-- =====================================================
+                 GROUP 2
+                 FILTER LAPORAN + DAFTAR INVOICE
+            ====================================================== -->
+
+            <div class="laporan-group laporan-group-data">
+
+
+                <!-- =========================
+                     FILTER LAPORAN
+                ========================== -->
+
+                <section class="laporan-section filter-section">
+
+                    <div class="card-header">
+
+                        <h2>
+                            Filter Laporan
+                        </h2>
+
+                        <p>
+                            Filter data berdasarkan status pembayaran.
+                        </p>
+
+                    </div>
+
+
+
+                    <div class="report-filter">
+
+
+                        <div class="form-group">
+
+                            <label for="filterStatus">
+                                Status Pembayaran
+                            </label>
+
+
+                            <select id="filterStatus">
+
+                                <option value="semua">
+                                    Semua
+                                </option>
+
+                                <option value="Lunas">
+                                    Lunas
+                                </option>
+
+                                <option value="DP">
+                                    DP
+                                </option>
+
+                                <option value="Belum Bayar">
+                                    Belum Bayar
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+
+                        <button
+                            type="button"
+                            id="filterButton"
+                            class="save-button"
+                        >
+                            Tampilkan
+                        </button>
+
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =========================
+                     PEMBATAS
+                ========================== -->
+
+                <div class="laporan-divider"></div>
+
+
+
+                <!-- =========================
+                     DAFTAR INVOICE
+                ========================== -->
+
+                <section class="laporan-section daftar-invoice-section">
+
+                    <div class="card-header">
+
+                        <h2>
+                            Daftar Invoice
+                        </h2>
+
+                        <p>
+                            Daftar invoice berdasarkan filter yang dipilih.
+                        </p>
+
+                    </div>
+
+
+                    <div id="reportList">
+                        Memuat laporan...
+                    </div>
+
+                </section>
+
+
+            </div>
+
+
+
+            <!-- =========================
+                 INFORMASI USER
+            ========================== -->
+
+            <div class="user-info">
+
+                <p id="userEmail">
+                    Memuat email...
+                </p>
+
+
+                <button id="logoutBtn">
+                    Logout
+                </button>
+
+            </div>
+
+
+        </main>
+
+    </div>
+
+
+
+    <!-- =========================
+         SUPABASE
+    ========================== -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+
+    <!-- =========================
+         CHART.JS
+    ========================== -->
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+
+    <!-- =========================
+         JSPDF
+    ========================== -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script src="dashboard.js"></script>
+
+    <script src="laporan.js"></script>
+
+
+</body>
+
+</html>

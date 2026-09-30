@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Produk/Jasa - Admin</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+    <div class="admin-layout">
+
+        <!-- =========================
+             SIDEBAR
+        ========================== -->
+        <aside class="sidebar">
+
+            <div class="sidebar-header">
+                <h2>ADMIN</h2>
+                <p>Dashboard</p>
+            </div>
+
+
+            <nav class="sidebar-menu">
+
+                <a href="invoice.html" class="menu-item">
+                    🧾
+                    <span>Invoice</span>
+                </a>
+
+
+                <a href="customer.html" class="menu-item">
+                    👤
+                    <span>Customer</span>
+                </a>
+
+
+                <a href="produk.html" class="menu-item active">
+                    📦
+                    <span>Produk/Jasa</span>
+                </a>
+
+
+                <a href="laporan.html" class="menu-item">
+                    📊
+                    <span>Laporan</span>
+                </a>
+
+
+                <a href="admin.html" class="menu-item">
+                    ⚙️
+                    <span>Pengaturan</span>
+                </a>
+
+            </nav>
+
+        </aside>
+
+        <!-- =========================
+             KONTEN UTAMA
+        ========================== -->
+        <main class="main-content">
+
+            <!-- JUDUL HALAMAN -->
+            <div class="topbar">
+
+                <div>
+                    <h1>Produk / Jasa</h1>
+                    <p>Kelola daftar produk dan jasa</p>
+                </div>
+
+            </div>
+
+            <!-- =========================
+                 FORM TAMBAH PRODUK / JASA
+            ========================== -->
+            <section class="settings-card">
+
+                <div class="card-header">
+
+                    <h2>Tambah Produk / Jasa</h2>
+
+                    <p>
+                        Masukkan informasi produk atau jasa.
+                    </p>
+
+                </div>
+
+
+                <form id="productForm">
+
+                    <!-- NAMA PRODUK / JASA -->
+                    <div class="form-group">
+
+                        <label for="productNama">
+                            Nama Produk / Jasa
+                        </label>
+
+                        <input
+                            type="text"
+                            id="productNama"
+                            placeholder="Contoh: Instalasi WiFi"
+                            required
+                        >
+
+                    </div>
+
+                    <!-- JENIS -->
+                    <div class="form-group">
+
+                        <label for="productJenis">
+                            Jenis
+                        </label>
+
+                        <select
+                            id="productJenis"
+                            required
+                        >
+
+                            <option value="">
+                                -- Pilih Jenis --
+                            </option>
+
+                            <option value="Produk">
+                                Produk
+                            </option>
+
+                            <option value="Jasa">
+                                Jasa
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                    <!-- HARGA -->
+                    <div class="form-group">
+
+                        <label for="productHarga">
+                            Harga
+                        </label>
+
+                        <input
+                            type="text"
+                            id="productHarga"
+                            placeholder="Contoh: 100.000"
+                            inputmode="numeric"
+                            autocomplete="off"
+                            required
+                        >
+
+                    </div>
+
+                    <!-- DESKRIPSI -->
+                    <div class="form-group">
+
+                        <label for="productDeskripsi">
+                            Deskripsi
+                        </label>
+
+                        <textarea
+                            id="productDeskripsi"
+                            placeholder="Masukkan deskripsi produk atau jasa"
+                            rows="4"
+                        ></textarea>
+
+                    </div>
+
+                    <!-- TOMBOL SIMPAN -->
+                    <button
+                        type="submit"
+                        class="save-button"
+                    >
+                        Simpan Produk / Jasa
+                    </button>
+
+                    <!-- PESAN -->
+                    <p id="productMessage"></p>
+
+                </form>
+
+            </section>
+
+            <!-- =========================
+                 DAFTAR PRODUK / JASA
+            ========================== -->
+            <section class="settings-card product-list">
+
+                <div class="card-header">
+                    <h2>Daftar Produk / Jasa</h2>
+                </div>
+
+
+                <div id="productList">
+                    Memuat data produk/jasa...
+                </div>
+
+            </section>
+
+            <!-- =========================
+                 INFORMASI USER
+            ========================== -->
+            <div class="user-info">
+
+                <p id="userEmail">
+                    Memuat email...
+                </p>
+
+
+                <button id="logoutBtn">
+                    Logout
+                </button>
+
+            </div>
+
+
+        </main>
+
+    </div>
+
+
+    <!-- SUPABASE -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- JAVASCRIPT -->
+    <script src="dashboard.js"></script>
+
+
+</body>
+
+</html>

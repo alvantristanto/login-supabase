@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Invoice - Admin</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="admin-layout">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+
+            <div class="sidebar-header">
+                <h2>ADMIN</h2>
+                <p>Dashboard</p>
+            </div>
+
+            <nav class="sidebar-menu">
+
+                <a href="invoice.html" class="menu-item active">
+                    🧾
+                    <span>Invoice</span>
+                </a>
+
+                <a href="customer.html" class="menu-item">
+                    👤
+                    <span>Customer</span>
+                </a>
+
+                <a href="produk.html" class="menu-item">
+                    📦
+                    <span>Produk/Jasa</span>
+                </a>
+
+                <a href="laporan.html" class="menu-item">
+                    📊
+                    <span>Laporan</span>
+                </a>
+
+                <a href="admin.html" class="menu-item">
+                    ⚙️
+                    <span>Pengaturan</span>
+                </a>
+
+            </nav>
+
+        </aside>
+
+
+        <!-- KONTEN UTAMA -->
+        <main class="main-content">
+
+            <!-- JUDUL HALAMAN -->
+            <div class="topbar">
+
+                <div>
+                    <h1>Invoice</h1>
+                    <p>Kelola data invoice pelanggan</p>
+                </div>
+
+            </div>
+
+
+            <!-- FORM BUAT INVOICE -->
+            <section class="settings-card">
+
+                <div class="card-header">
+                    <h2>Buat Invoice</h2>
+                    <p>Masukkan data invoice pelanggan.</p>
+                </div>
+
+
+                <form id="invoiceForm">
+
+                    <!-- NOMOR INVOICE -->
+                    <div class="form-group">
+
+                        <label for="nomorInvoice">
+                            Nomor Invoice
+                        </label>
+
+                        <input
+                            type="text"
+                            id="nomorInvoice"
+                            placeholder="Contoh: INV-001"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- TANGGAL -->
+                    <div class="form-group">
+
+                        <label for="tanggalInvoice">
+                            Tanggal
+                        </label>
+
+                        <input
+                            type="date"
+                            id="tanggalInvoice"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- CUSTOMER -->
+                    <div class="form-group">
+
+                        <label for="customer">
+                            Customer
+                        </label>
+
+                        <input
+                            type="text"
+                            id="customer"
+                            placeholder="Nama customer"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- PRODUK / JASA -->
+                    <div class="form-group">
+
+                        <label for="produkJasa">
+                            Produk / Jasa
+                        </label>
+
+                        <input
+                            type="text"
+                            id="produkJasa"
+                            placeholder="Nama produk atau jasa"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- JUMLAH -->
+                    <div class="form-group">
+
+                        <label for="jumlah">
+                            Jumlah
+                        </label>
+
+                        <input
+                            type="number"
+                            id="jumlah"
+                            value="1"
+                            min="1"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- HARGA -->
+                    <div class="form-group">
+
+                        <label for="harga">
+                            Harga
+                        </label>
+
+                        <input
+                            type="text"
+                            id="harga"
+                            placeholder="Contoh: 100.000"
+                            inputmode="numeric"
+                            autocomplete="off"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- STATUS PEMBAYARAN -->
+                    <div class="form-group">
+
+                        <label for="status">
+                            Status Pembayaran
+                        </label>
+
+                        <select id="status" required>
+
+                            <option value="" selected>
+                                Pilih Status
+                            </option>
+
+                            <option value="Belum Bayar">
+                                Belum Bayar
+                            </option>
+
+                            <option value="DP">
+                                DP
+                            </option>
+
+                            <option value="Lunas">
+                                Lunas
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- NOMINAL DP -->
+                    <div class="form-group">
+
+                        <label for="nominalDP">
+                            Nominal DP
+                        </label>
+
+                        <input
+                            type="text"
+                            id="nominalDP"
+                            placeholder="Contoh: 300.000"
+                            inputmode="numeric"
+                            autocomplete="off"
+                            value="0"
+                        >
+
+                    </div>
+
+
+                    <!-- TOMBOL SIMPAN -->
+                    <button
+                        type="submit"
+                        class="save-button"
+                    >
+                        Simpan Invoice
+                    </button>
+
+
+                    <!-- PESAN -->
+                    <p id="invoiceMessage"></p>
+
+                </form>
+
+            </section>
+
+
+            <!-- INFORMASI PEMBAYARAN -->
+            <section class="settings-card payment-info">
+
+                <div class="card-header">
+                    <h2>Informasi Pembayaran</h2>
+                    <p>Rekening untuk pembayaran invoice</p>
+                </div>
+
+
+                <div class="payment-detail">
+
+                    <p>
+                        <strong>Nama Bank:</strong>
+                        <span id="invoiceNamaBank">
+                            Memuat...
+                        </span>
+                    </p>
+
+
+                    <p>
+                        <strong>No. Rekening:</strong>
+                        <span id="invoiceNoRek">
+                            Memuat...
+                        </span>
+                    </p>
+
+
+                    <p>
+                        <strong>Nama Rekening:</strong>
+                        <span id="invoiceNamaRekening">
+                            Memuat...
+                        </span>
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- DAFTAR INVOICE -->
+            <section class="settings-card invoice-list">
+
+                <div class="card-header">
+                    <h2>Daftar Invoice</h2>
+                </div>
+
+
+               <div class="invoice-table-wrapper">
+
+    <div id="invoiceList">
+        Memuat data invoice...
+    </div>
+
+</div>
+
+            </section>
+
+
+            <!-- INFORMASI USER -->
+            <div class="user-info">
+
+                <p id="userEmail">
+                    Memuat email...
+                </p>
+
+
+                <button id="logoutBtn">
+                    Logout
+                </button>
+
+            </div>
+
+        </main>
+
+    </div>
+
+
+    <!-- SUPABASE -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- JAVASCRIPT -->
+    <script src="dashboard.js"></script>
+
+</body>
+
+</html>
